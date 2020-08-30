@@ -1,8 +1,11 @@
 {% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
     <h2>Edit Resume</h2>
-    <form method="POST" class="resume-form">{% csrf_token %}
+    <form method="POST" class="resume-form">
+        {% csrf_token %}
+        {{ form|crispy }}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Save</button>
     </form>

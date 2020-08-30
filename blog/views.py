@@ -4,6 +4,7 @@ from .models import Post, Resume
 from .forms import PostForm
 from .forms import ResumeForm
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
@@ -17,7 +18,7 @@ def post_detail(request, pk):
 def resume_detail(request, pk):
     resume = get_object_or_404(Resume, pk=pk)
     return render(request, 'blog/resume_detail.html', {'resume': resume})
-
+@login_required
 def post_new(request):
     if request.method == "POST":
         form = PostForm(request.POST)
@@ -30,7 +31,7 @@ def post_new(request):
     else:
         form = PostForm()
     return render(request, 'blog/post_edit.html', {'form': form})
-
+@login_required
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
@@ -44,12 +45,12 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
-    
+@login_required    
 def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()
     return redirect('post_list')
-
+@login_required
 def resume_edit(request):
     resume = get_object_or_404(Resume)
     if request.method == "POST":
