@@ -22,14 +22,14 @@ class Post(models.Model):
 
 class Resume(models.Model):
         author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-        title = "My Resume"
+        title = "Andrei Mihai - Resume"
         mobile = models.CharField(max_length=100)
         email = models.EmailField(max_length=100)
         address = models.CharField(max_length=100)
         job = models.CharField(max_length=100)
         personalProfile = models.TextField()
-        jobTitle1 = models.CharField(max_length=100,blank=False)
-        jobTitle2 = models.CharField(max_length=100,blank=True)
+        jobTitle1 = models.CharField(max_length=100)
+        jobTitle2 = models.CharField(max_length=100)
         YEAR_CHOICES = [(y,y) for y in range(2010, datetime.date.today().year+1)]
         MONTH_CHOICES = [(m,m) for m in range(1,13)]
         YEAR_CHOICES.insert(0, ('',''))
