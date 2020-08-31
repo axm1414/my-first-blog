@@ -18,7 +18,7 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-        
+
     def approved_comments(self):
         return self.comments.filter(approved_comment=True)
     
@@ -47,6 +47,14 @@ class Resume(models.Model):
         end_month2 = models.IntegerField(choices=MONTH_CHOICES, default=datetime.datetime.now().month)
         job_description1 = models.TextField()
         job_description2 = models.TextField()
+        skillField1 = models.CharField(max_length=100)
+        skillDescription1 = models.TextField()
+        skillField2 = models.CharField(max_length=100)
+        skillDescription2 = models.TextField()
+        skillField3 = models.CharField(max_length=100)
+        skillDescription3 = models.TextField()
+        skillField4 = models.CharField(max_length=100)
+        skillDescription4 = models.TextField()
         created_date = models.DateTimeField(default=timezone.now)
         published_date = models.DateTimeField(blank=True, null=True)
 

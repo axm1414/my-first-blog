@@ -24,6 +24,10 @@ class ResumeForm(forms.ModelForm):
         'job', 
         'personalProfile', 
         'jobTitle1', 'start_year1', 'start_month1' ,'end_year1', 'end_month1', 'job_description1',
-        'jobTitle2', 'start_year2', 'start_month2' ,'end_year2', 'end_month2', 'job_description2'
+        'jobTitle2', 'start_year2', 'start_month2' ,'end_year2', 'end_month2', 'job_description2',
+        'skillField1', 'skillDescription1',
+        'skillField2', 'skillDescription2',
+        'skillField3', 'skillDescription3',
+        'skillField4', 'skillDescription4',
         ]
 
